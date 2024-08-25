@@ -1,6 +1,6 @@
 import React from "react";
-import { MenuItem } from ".";
 import Link from "next/link";
+import { MenuItem } from ".";
 import { cn } from "@/lib/utils";
 
 const MenuList = ({
