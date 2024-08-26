@@ -8,6 +8,12 @@ import { cn } from "@/lib/utils";
 import Buttton from "../shared/Buttton";
 import useScrollHandler from "@/lib/hooks/useScrollHandler";
 import Logo from "@/assets/logo.svg";
+import { MotionDiv, MotionNav } from "@/framer-motion/elements";
+import {
+  leftSideVariants,
+  rightSideVariants,
+  sectionVariants,
+} from "@/framer-motion/variants";
 
 export interface MenuItem {
   id: number;
@@ -43,29 +49,35 @@ const Header = () => {
 
   // Track scrollbar
   const { lastScrollY, scrolling } = useScrollHandler();
+  const vissible = lastScrollY < 300 || scrolling === "top";
 
   return (
-    <nav
+    <MotionNav
+      variants={sectionVariants({ from: "top" })}
+      initial="hidden"
+      animate={vissible ? "visible" : "hidden"}
       className={cn(
-        "w-full overflow-hidden fixed top-0 left-0 right-0 !z-[5000]  transition-all duration-700 delay-75",
-        {
-          "top-[-100%]": lastScrollY > 300,
-          "top-0": scrolling === "top",
-        }
+        "w-full overflow-hidden fixed top-0 left-0 right-0 !z-[5000]"
       )}
     >
       <div className="bg-[#E1E3F1] h-[70px] flex justify-between items-center">
         <div className="w-full max-w-7xl mx-auto flex justify-between items-center text-brand_primary p-5 md:px-8">
-          <Link href={"/"} className="select-none">
-            <Image
-              src={Logo}
-              alt="Logo"
-              width={300}
-              height={300}
-              priority
-              className="w-[120px] h-[60px]"
-            />
-          </Link>
+          <MotionDiv
+            variants={leftSideVariants}
+            initial="hidden"
+            whileInView="visible"
+          >
+            <Link href={"/"} className="select-none">
+              <Image
+                src={Logo}
+                alt="Logo"
+                width={300}
+                height={300}
+                priority
+                className="w-[120px] h-[60px]"
+              />
+            </Link>
+          </MotionDiv>
 
           <div className="hidden lg:block">
             <MenuList menus={menuConstant} />
@@ -77,7 +89,12 @@ const Header = () => {
             </Link>
           </div>
 
-          <div className="lg:hidden cursor-pointer">
+          <MotionDiv
+            variants={rightSideVariants}
+            initial="hidden"
+            whileInView="visible"
+            className="lg:hidden cursor-pointer"
+          >
             {open ? (
               <X
                 onClick={() => {
@@ -91,7 +108,7 @@ const Header = () => {
                 }}
               />
             )}
-          </div>
+          </MotionDiv>
         </div>
       </div>
 
@@ -130,7 +147,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </MotionNav>
   );
 };
 

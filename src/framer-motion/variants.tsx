@@ -13,8 +13,9 @@ export const sectionVariants = ({
     x: 0,
     y: 0,
     transition: {
-      type: "spring",
-      staggerChildren: 0.2,
+      type: "tween",
+      when: "beforeChildren",
+      staggerChildren: 0.1,
     },
   },
 });
@@ -26,7 +27,7 @@ export const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      type: "",
+      type: "tween",
       when: "beforeChildren",
       staggerChildren: 0.1,
     },
@@ -40,8 +41,8 @@ export const fadeInVariants = {
   visible: {
     opacity: 1,
     transition: {
-      delay: 500,
       type: "spring",
+      duration: 2,
     },
   },
 };
@@ -68,9 +69,9 @@ export const modalVariants = {
 export const rightSideVariants = {
   hidden: {
     opacity: 0,
-    x: "-100%",
+    x: "100%",
   },
-  whileInView: {
+  visible: {
     opacity: 1,
     x: 0,
     transition: {
@@ -83,34 +84,59 @@ export const rightSideVariants = {
 };
 
 export const leftSideVariants = {
-  open: (height: number = 5000) => ({
-    clipPath: `circle(${height * 2 + 500}px at -40px -40px)`,
+  hidden: {
+    opacity: 0,
+    x: "-100%",
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
     transition: {
+      staggerChildren: 0.01,
       type: "spring",
       stiffness: 80,
-      restDelta: 2,
-    },
-  }),
-  closed: {
-    clipPath: "circle(30px at -40px -40px)",
-    transition: {
-      delay: 0.5,
-      type: "spring",
-      stiffness: 400,
-      damping: 40,
+      mass: 0.3,
     },
   },
 };
 
+// export const leftSideVariants = {
+//   open: (height: number = 5000) => ({
+//     clipPath: `circle(${height * 2 + 500}px at -40px -40px)`,
+//     transition: {
+//       type: "spring",
+//       stiffness: 80,
+//       restDelta: 2,
+//     },
+//   }),
+//   closed: {
+//     clipPath: "circle(30px at -40px -40px)",
+//     transition: {
+//       delay: 0.5,
+//       type: "spring",
+//       stiffness: 400,
+//       damping: 40,
+//     },
+//   },
+// };
+
 export const zoomVariants = {
   scaleup: {
-    scale: 1.2,
+    scale: 1,
   },
   scaledown: {
-    scale: 1,
+    scale: 0,
     transition: {
       type: "tween",
-      duration: 1.9,
+      delay: 10500,
+      stiffness: 400,
+      damping: 4,
+      duration: 10,
     },
   },
 };
+
+// Function
+export function template({ rotate, x }: { rotate: string; x: string }) {
+  return `rotate(${rotate}) translateX(${x})`;
+}

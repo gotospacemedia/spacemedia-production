@@ -1,117 +1,24 @@
 import React from "react";
 import Hero from "@/components/Home/Hero";
+import OurMissionAndPhilosophy from "@/components/Home/OurMissionAndPhilosophy";
+import { MotionDiv } from "@/framer-motion/elements";
+import { containerVariants } from "@/framer-motion/variants";
+import Services from "@/components/Home/Services";
+import dynamic from "next/dynamic";
+const OurHappyClients = dynamic(
+  () => import("@/components/Home/OurHappyClients"),
+  { ssr: false }
+);
 
 const HomePage = () => {
   return (
-    <div>
+    <MotionDiv variants={containerVariants} initial="hidden" animate="visible">
       <Hero />
+      <OurMissionAndPhilosophy />
+      <Services />
+      <OurHappyClients />
       <br />
-
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quae,
-        atque, in ipsam, nostrum amet porro ducimus omnis adipisci rem eveniet
-        natus sit qui deserunt minus blanditiis incidunt a sint. Earum sint,
-        commodi consequatur officia reprehenderit ut, sed nesciunt quae dolores
-        ab omnis non, fugit veritatis quod! Odio possimus, magni earum optio
-        itaque cumque impedit pariatur repellendus sunt facilis ipsam
-        voluptatibus, veritatis neque cum nisi maiores. Velit ea, qui
-        repellendus voluptate dolore quibusdam suscipit quas officia eius,
-        doloribus magnam vel tempora! Culpa mollitia est voluptatibus ab ullam,
-        delectus ipsum nemo distinctio eaque quisquam aut exercitationem alias
-        at similique minus deleniti.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quae,
-        atque, in ipsam, nostrum amet porro ducimus omnis adipisci rem eveniet
-        natus sit qui deserunt minus blanditiis incidunt a sint. Earum sint,
-        commodi consequatur officia reprehenderit ut, sed nesciunt quae dolores
-        ab omnis non, fugit veritatis quod! Odio possimus, magni earum optio
-        itaque cumque impedit pariatur repellendus sunt facilis ipsam
-        voluptatibus, veritatis neque cum nisi maiores. Velit ea, qui
-        repellendus voluptate dolore quibusdam suscipit quas officia eius,
-        doloribus magnam vel tempora! Culpa mollitia est voluptatibus ab ullam,
-        delectus ipsum nemo distinctio eaque quisquam aut exercitationem alias
-        at similique minus deleniti.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quae,
-        atque, in ipsam, nostrum amet porro ducimus omnis adipisci rem eveniet
-        natus sit qui deserunt minus blanditiis incidunt a sint. Earum sint,
-        commodi consequatur officia reprehenderit ut, sed nesciunt quae dolores
-        ab omnis non, fugit veritatis quod! Odio possimus, magni earum optio
-        itaque cumque impedit pariatur repellendus sunt facilis ipsam
-        voluptatibus, veritatis neque cum nisi maiores. Velit ea, qui
-        repellendus voluptate dolore quibusdam suscipit quas officia eius,
-        doloribus magnam vel tempora! Culpa mollitia est voluptatibus ab ullam,
-        delectus ipsum nemo distinctio eaque quisquam aut exercitationem alias
-        at similique minus deleniti.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quae,
-        atque, in ipsam, nostrum amet porro ducimus omnis adipisci rem eveniet
-        natus sit qui deserunt minus blanditiis incidunt a sint. Earum sint,
-        commodi consequatur officia reprehenderit ut, sed nesciunt quae dolores
-        ab omnis non, fugit veritatis quod! Odio possimus, magni earum optio
-        itaque cumque impedit pariatur repellendus sunt facilis ipsam
-        voluptatibus, veritatis neque cum nisi maiores. Velit ea, qui
-        repellendus voluptate dolore quibusdam suscipit quas officia eius,
-        doloribus magnam vel tempora! Culpa mollitia est voluptatibus ab ullam,
-        delectus ipsum nemo distinctio eaque quisquam aut exercitationem alias
-        at similique minus deleniti.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quae,
-        atque, in ipsam, nostrum amet porro ducimus omnis adipisci rem eveniet
-        natus sit qui deserunt minus blanditiis incidunt a sint. Earum sint,
-        commodi consequatur officia reprehenderit ut, sed nesciunt quae dolores
-        ab omnis non, fugit veritatis quod! Odio possimus, magni earum optio
-        itaque cumque impedit pariatur repellendus sunt facilis ipsam
-        voluptatibus, veritatis neque cum nisi maiores. Velit ea, qui
-        repellendus voluptate dolore quibusdam suscipit quas officia eius,
-        doloribus magnam vel tempora! Culpa mollitia est voluptatibus ab ullam,
-        delectus ipsum nemo distinctio eaque quisquam aut exercitationem alias
-        at similique minus deleniti.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quae,
-        atque, in ipsam, nostrum amet porro ducimus omnis adipisci rem eveniet
-        natus sit qui deserunt minus blanditiis incidunt a sint. Earum sint,
-        commodi consequatur officia reprehenderit ut, sed nesciunt quae dolores
-        ab omnis non, fugit veritatis quod! Odio possimus, magni earum optio
-        itaque cumque impedit pariatur repellendus sunt facilis ipsam
-        voluptatibus, veritatis neque cum nisi maiores. Velit ea, qui
-        repellendus voluptate dolore quibusdam suscipit quas officia eius,
-        doloribus magnam vel tempora! Culpa mollitia est voluptatibus ab ullam,
-        delectus ipsum nemo distinctio eaque quisquam aut exercitationem alias
-        at similique minus deleniti.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quae,
-        atque, in ipsam, nostrum amet porro ducimus omnis adipisci rem eveniet
-        natus sit qui deserunt minus blanditiis incidunt a sint. Earum sint,
-        commodi consequatur officia reprehenderit ut, sed nesciunt quae dolores
-        ab omnis non, fugit veritatis quod! Odio possimus, magni earum optio
-        itaque cumque impedit pariatur repellendus sunt facilis ipsam
-        voluptatibus, veritatis neque cum nisi maiores. Velit ea, qui
-        repellendus voluptate dolore quibusdam suscipit quas officia eius,
-        doloribus magnam vel tempora! Culpa mollitia est voluptatibus ab ullam,
-        delectus ipsum nemo distinctio eaque quisquam aut exercitationem alias
-        at similique minus deleniti.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quae,
-        atque, in ipsam, nostrum amet porro ducimus omnis adipisci rem eveniet
-        natus sit qui deserunt minus blanditiis incidunt a sint. Earum sint,
-        commodi consequatur officia reprehenderit ut, sed nesciunt quae dolores
-        ab omnis non, fugit veritatis quod! Odio possimus, magni earum optio
-        itaque cumque impedit pariatur repellendus sunt facilis ipsam
-        voluptatibus, veritatis neque cum nisi maiores. Velit ea, qui
-        repellendus voluptate dolore quibusdam suscipit quas officia eius,
-        doloribus magnam vel tempora! Culpa mollitia est voluptatibus ab ullam,
-        delectus ipsum nemo distinctio eaque quisquam aut exercitationem alias
-        at similique minus deleniti.
-      </p>
-    </div>
+    </MotionDiv>
   );
 };
 
