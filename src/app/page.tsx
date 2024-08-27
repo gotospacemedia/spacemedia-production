@@ -5,6 +5,8 @@ import { MotionDiv } from "@/framer-motion/elements";
 import { containerVariants } from "@/framer-motion/variants";
 import Services from "@/components/Home/Services";
 import dynamic from "next/dynamic";
+import WorkProcess from "@/components/Home/WorkProcess";
+import FAQ from "@/components/Home/Faq";
 const OurHappyClients = dynamic(
   () => import("@/components/Home/OurHappyClients"),
   { ssr: false }
@@ -17,6 +19,8 @@ const HomePage = () => {
       <OurMissionAndPhilosophy />
       <Services />
       <OurHappyClients />
+      <WorkProcess />
+      <FAQ />
       <br />
     </MotionDiv>
   );

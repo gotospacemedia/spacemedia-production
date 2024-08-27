@@ -1,0 +1,25 @@
+.main_container {
+  @apply w-full h-full overflow-hidden flex flex-col gap-5;
+}
+
+.nav {
+  @apply  bg-[#8855ff] text-[#fdfdfd] p-5  overflow-hidden rounded-md
+}
+
+.ul {
+  @apply flex w-full h-full;
+}
+
+.li {
+  @apply rounded-md rounded-bl-none rounded-br-none w-full h-full py-[10px] px-[15px] relative cursor-pointer flex justify-center items-center flex-1 select-none
+}
+
+.underline {
+  @apply absolute bottom-[-1px] left-0 right-0 h-[3px] bg-[#fdfdfd]
+}
+
+
+.tab_container {
+    @apply flex justify-center items-center flex-grow select-none p-5 md:p-10 bg-gradient-to-tr from-purple-600 via-green-800 to-blue-700 rounded-md
+
+}

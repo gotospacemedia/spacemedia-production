@@ -3,9 +3,9 @@ import { MotionSection } from "@/framer-motion/elements";
 import { sectionVariants } from "@/framer-motion/variants";
 import Buttton from "@/components/shared/Buttton";
 import SectionHeader from "@/components/shared/SectionHeader";
-import ServiceTab from "./ServiceTab";
+import WorkProcessSlider from "./WorkProcessSlider";
 
-const Services = () => {
+const WorkProcess = () => {
   return (
     <div className="px-5 lg:px-10  py-10 bg-gradient-to-b from-blue-300  to-blue-300">
       <MotionSection
@@ -18,24 +18,20 @@ const Services = () => {
           <div className="flex flex-col items-center justify-center gap-5">
             <SectionHeader
               heading={{
-                title: "Services",
+                title: "Process",
                 extraClass: "bg-gradient-to-b from-blue-300  to-blue-300",
               }}
-              description="Managing multiple vendors for your content is expensive and time-consuming. We offer an end-to-end solution, streamlining the
-              production of your content to promote it effectively across platforms."
+              description="How we work at Amplify."
             />
           </div>
 
           <div>
-            <ServiceTab />
+            <WorkProcessSlider />
           </div>
-        </div>
-        <div className="flex justify-center">
-          <Buttton>View Our Work</Buttton>
         </div>
       </MotionSection>
     </div>
   );
 };
 
-export default Services;
+export default WorkProcess;
