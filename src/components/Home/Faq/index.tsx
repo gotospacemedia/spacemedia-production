@@ -50,7 +50,10 @@ const FAQLIST: FAQ[] = [
 
 const FAQ = () => {
   return (
-    <div className="px-5 lg:px-10  py-10 bg-gradient-to-b from-blue-300  to-blue-300">
+    <div
+      id="faq"
+      className="px-5 lg:px-10  py-10 bg-gradient-to-b from-blue-300  to-blue-300"
+    >
       <MotionSection
         variants={sectionVariants({ from: "bottom" })}
         initial="hidden"

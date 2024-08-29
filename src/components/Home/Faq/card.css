@@ -26,10 +26,10 @@
   }
   
   .flip-card-front {
-     @apply bg-gradient-to-tr from-blue-900 via-green-900 to-purple-900 flex items-center justify-between gap-5 p-5 text-white text-lg
+     @apply bg-gradient-to-br from-blue-500 via-blue-400 to-blue-500 flex items-center justify-between gap-5 p-5 text-white text-lg
   }
   
   .flip-card-back {
     transform: rotateX(180deg);
-    @apply bg-gradient-to-br from-purple-900 via-green-900 to-blue-900 flex items-center justify-between gap-5 p-5 text-white text-sm md:text-base
+    @apply bg-gradient-to-br from-blue-500 via-blue-400 to-blue-500 flex items-center justify-between gap-5 p-5 text-white text-sm md:text-base
   }

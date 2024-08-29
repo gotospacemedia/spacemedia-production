@@ -7,6 +7,8 @@ import Services from "@/components/Home/Services";
 import dynamic from "next/dynamic";
 import WorkProcess from "@/components/Home/WorkProcess";
 import FAQ from "@/components/Home/Faq";
+import MemberShip from "@/components/Home/MemberShip";
+import ContactUs from "@/components/Home/ContactUs";
 const OurHappyClients = dynamic(
   () => import("@/components/Home/OurHappyClients"),
   { ssr: false }
@@ -20,8 +22,9 @@ const HomePage = () => {
       <Services />
       <OurHappyClients />
       <WorkProcess />
+      <MemberShip />
       <FAQ />
-      <br />
+      <ContactUs />
     </MotionDiv>
   );
 };

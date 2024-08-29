@@ -1,6 +1,6 @@
 import React from "react";
 import LaptopComponents from "./LaptopComponents";
-import { MotionDiv, MotionH1 } from "@/framer-motion/elements";
+import { MotionDiv, MotionH1, MotionH2 } from "@/framer-motion/elements";
 import {
   containerVariants,
   fadeInVariants,
@@ -10,7 +10,7 @@ import {
 
 const Hero = () => {
   return (
-    <div className="px-5 lg:px-10 py-32 md:py-40 lg:py-52  bg-gradient-to-b from-blue-900  to-blue-300 overflow-hidden">
+    <div className="px-5 lg:px-10 py-36 md:py-52 lg:py-60  bg-gradient-to-b from-blue-900  to-blue-300 overflow-hidden">
       <MotionDiv
         variants={containerVariants}
         initial="hidden"
@@ -25,22 +25,22 @@ const Hero = () => {
           className="flex-1 space-y-5 ml-10"
         >
           <div className="flex justify-center md:justify-start gap-5 text-5xl sm:text-6xl lg:text-[5rem] xl:text-[6rem] font-extrabold">
-            <MotionH1
+            <MotionH2
               variants={fadeInVariants}
               initial="hidden"
               animate="visible"
               className="bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-gray-400"
             >
               Grow.
-            </MotionH1>
-            <MotionH1
+            </MotionH2>
+            <MotionH2
               variants={fadeInVariants}
               initial="hidden"
               animate="visible"
               className="bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-gray-400"
             >
               Scale.
-            </MotionH1>
+            </MotionH2>
           </div>
           <MotionH1
             variants={zoomVariants}
@@ -56,7 +56,7 @@ const Hero = () => {
         <MotionDiv
           variants={rightSideVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
         >
           <LaptopComponents />
         </MotionDiv>

@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,13 +8,14 @@ import MenuList from "./MenuList";
 import { cn } from "@/lib/utils";
 import Buttton from "../shared/Buttton";
 import useScrollHandler from "@/lib/hooks/useScrollHandler";
-import Logo from "@/assets/logo.svg";
 import { MotionDiv, MotionNav } from "@/framer-motion/elements";
 import {
+  fadeInVariants,
   leftSideVariants,
   rightSideVariants,
   sectionVariants,
 } from "@/framer-motion/variants";
+import Logo from "@/assets/logo.svg";
 
 export interface MenuItem {
   id: number;
@@ -25,22 +27,27 @@ const menuConstant: MenuItem[] = [
   {
     id: 1,
     title: "Services",
-    url: "#services",
+    url: "/#services",
   },
   {
     id: 2,
     title: "Case Studies",
-    url: "#case-studies",
+    url: "/case-studies",
   },
   {
     id: 3,
     title: "Examples",
-    url: "#examples",
+    url: "/examples",
   },
   {
     id: 4,
+    title: "Pricing",
+    url: "/#pricing",
+  },
+  {
+    id: 5,
     title: "FAQ",
-    url: "#faq",
+    url: "/#faq",
   },
 ];
 
@@ -79,15 +86,25 @@ const Header = () => {
             </Link>
           </MotionDiv>
 
-          <div className="hidden lg:block">
+          <MotionDiv
+            variants={fadeInVariants}
+            initial="hidden"
+            whileInView="visible"
+            className="hidden lg:block"
+          >
             <MenuList menus={menuConstant} />
-          </div>
+          </MotionDiv>
 
-          <div className="hidden lg:block ">
-            <Link href={"/contact-us"}>
+          <MotionDiv
+            variants={rightSideVariants}
+            initial="hidden"
+            whileInView="visible"
+            className="hidden lg:block "
+          >
+            <Link href={"#"}>
               <Buttton className="text-sm px-5 py-2">Contact Us</Buttton>
             </Link>
-          </div>
+          </MotionDiv>
 
           <MotionDiv
             variants={rightSideVariants}
@@ -141,7 +158,7 @@ const Header = () => {
           />
 
           <div>
-            <Link href={"/contact-us"}>
+            <Link href={"#"}>
               <Buttton className="text-sm px-5 py-2">Contact Us</Buttton>
             </Link>
           </div>

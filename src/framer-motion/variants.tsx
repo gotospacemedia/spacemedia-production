@@ -100,26 +100,6 @@ export const leftSideVariants = {
   },
 };
 
-// export const leftSideVariants = {
-//   open: (height: number = 5000) => ({
-//     clipPath: `circle(${height * 2 + 500}px at -40px -40px)`,
-//     transition: {
-//       type: "spring",
-//       stiffness: 80,
-//       restDelta: 2,
-//     },
-//   }),
-//   closed: {
-//     clipPath: "circle(30px at -40px -40px)",
-//     transition: {
-//       delay: 0.5,
-//       type: "spring",
-//       stiffness: 400,
-//       damping: 40,
-//     },
-//   },
-// };
-
 export const zoomVariants = {
   scaleup: {
     scale: 1,
@@ -135,8 +115,3 @@ export const zoomVariants = {
     },
   },
 };
-
-// Function
-export function template({ rotate, x }: { rotate: string; x: string }) {
-  return `rotate(${rotate}) translateX(${x})`;
-}
