@@ -5,6 +5,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Lottiefiles from "@/components/shared/Lottiefiles";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

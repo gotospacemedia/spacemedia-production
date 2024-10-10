@@ -41,13 +41,15 @@ const MemberShip = () => {
           </div>
         </div>
 
-        <div className="flex justify-between gap-5">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-5">
           <CardTitle className="text-white">
             Have a question? Book a free strategy call.
           </CardTitle>
-          <Buttton className="px-5 py-2 text-xs bg-transparent hover:bg-transparent border hover:text-blue-950 border-white">
-            Book a Call
-          </Buttton>
+          <div>
+            <Buttton className="px-5 py-2 text-xs bg-transparent hover:bg-transparent border hover:text-blue-950 border-white">
+              Book a Call
+            </Buttton>
+          </div>
         </div>
       </MotionSection>
     </div>
