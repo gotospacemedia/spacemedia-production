@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Logo from "../logo";
 import { MotionDiv } from "@/framer-motion/elements";
 import {
   containerVariants,
@@ -9,8 +8,9 @@ import {
 } from "@/framer-motion/variants";
 import ScrollToTop from "react-scroll-to-top";
 import { ChevronsUp } from "lucide-react";
-import ScrollToShowButton from "../ScrollToShowButton";
 import "./style.css";
+import Logo from "@/components/logo";
+import ScrollToShowButton from "@/components/ScrollToShowButton";
 
 export default function Footer() {
   return (
