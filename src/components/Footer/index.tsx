@@ -1,84 +1,67 @@
-import React from "react";
-import Image from "next/image";
+"use client";
 import Link from "next/link";
+import Logo from "../logo";
 import { MotionDiv } from "@/framer-motion/elements";
 import {
-  fadeInVariants,
+  containerVariants,
   leftSideVariants,
   rightSideVariants,
 } from "@/framer-motion/variants";
-import { Facebook, Instagram } from "lucide-react";
-import { Separator } from "../ui/separator";
-import Logo from "@/assets/logo.svg";
+import ScrollToTop from "react-scroll-to-top";
+import { ChevronsUp } from "lucide-react";
+import ScrollToShowButton from "../ScrollToShowButton";
+import "./style.css";
 
-const Footer = () => {
-  const mail = "hello@spacemediaproduction.com";
-
+export default function Footer() {
   return (
-    <div className="bg-blue-200 overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto p-5 md:px-8 space-y-5">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-5 ">
-          <MotionDiv
-            variants={leftSideVariants}
-            initial="hidden"
-            whileInView="visible"
-          >
-            <Link href={"/"} className="select-none">
-              <Image
-                src={Logo}
-                alt="SpaceMediaProduction Logo"
-                width={300}
-                height={300}
-                className="w-[120px] h-[60px]"
-              />
-            </Link>
-          </MotionDiv>
+    <footer className="overflow-hidden">
+      <MotionDiv
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="container mx-auto px-4 py-10 border-t-2 border-gray-700"
+      >
+        {/* Top section with logo and buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-10 mb-10">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2 z-30">
+            <MotionDiv
+              variants={leftSideVariants}
+              className="flex items-center gap-2"
+            >
+              <Logo />
+            </MotionDiv>
+          </Link>
 
-          <MotionDiv
-            variants={fadeInVariants}
-            initial="hidden"
-            whileInView="visible"
-          >
-            <p className="text-sm">
-              Say hello 👋 →{" "}
-              <a
-                href={`mailto:${mail}?subject=Inquiry%20about%20your%20services&body=Hello`}
-              >
-                {mail}
-              </a>
-            </p>
-          </MotionDiv>
-
+          {/* Copyrights*/}
           <MotionDiv
             variants={rightSideVariants}
-            initial="hidden"
-            whileInView="visible"
-            className="flex gap-5"
+            className="flex items-center justify-center gap-4 z-30"
           >
-            <Link target="_blank" href={"https://www.facebook.com/"}>
-              <Facebook className="hover:text-[#0863F7]" />
-            </Link>
-            <Link target="_blank" href={"https://www.instagram.com/"}>
-              <Instagram className="hover:text-[#F70988]" />
-            </Link>
+            <div className="mb-4 sm:mb-0">
+              <p className="text-gray-400">
+                © {new Date().getFullYear()} EditNow | all rights reserved.
+              </p>
+            </div>
           </MotionDiv>
         </div>
+      </MotionDiv>
 
-        <Separator className="bg-black/50" />
+      {/* fixed element */}
+      <div>
+        <ScrollToTop
+          smooth
+          top={2000}
+          component={<ChevronsUp color="#000" />}
+        />
 
-        <MotionDiv
-          variants={fadeInVariants}
-          initial="hidden"
-          whileInView="visible"
-          className="py-1"
-        >
-          <p className="text-center text-sm">
-            © {new Date().getFullYear()} SpaceMediaProduction Ltd.
-          </p>
-        </MotionDiv>
+        <ScrollToShowButton
+          href="/call"
+          buttonText="Book a demo call"
+          scrollThreshold={2000}
+        />
       </div>
-    </div>
+    </footer>
   );
-};
-
-export default Footer;
+}

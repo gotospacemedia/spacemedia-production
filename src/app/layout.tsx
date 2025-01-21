@@ -1,20 +1,24 @@
-import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Lottiefiles from "@/components/shared/Lottiefiles";
+import { Geist, Geist_Mono } from "next/font/google";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "SpaceMediaProduction",
+  title: "EditNow",
   description:
-    "Transforming visions into reality, SpaceMediaProduction specializes in high-quality video, and multimedia production. From concept to completion, we deliver compelling stories with creativity, precision, and cutting-edge technology. Partner with us for innovative content that captivates and inspires",
+    "We are EditNow, a video editing service provider dedicated to transforming your creative visions into stunning reality",
 };
 
 export default function RootLayout({
@@ -23,12 +27,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
-        <Header />
-        <main>{children}</main>
+    <html lang="en" className="dark scroll-smooth">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <Navbar />
+        {children}
         <Footer />
-        <Lottiefiles />
       </body>
     </html>
   );

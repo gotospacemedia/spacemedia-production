@@ -77,6 +77,7 @@ export const rightSideVariants = {
     transition: {
       staggerChildren: 0.01,
       type: "spring",
+      when: "beforeChildren",
       stiffness: 80,
       mass: 0.3,
     },
@@ -94,6 +95,25 @@ export const leftSideVariants = {
     transition: {
       staggerChildren: 0.01,
       type: "spring",
+      when: "beforeChildren",
+      stiffness: 80,
+      mass: 0.3,
+    },
+  },
+};
+
+export const bottomSideVariants = {
+  hidden: {
+    opacity: 0,
+    y: "20%",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.01,
+      type: "spring",
+      when: "beforeChildren",
       stiffness: 80,
       mass: 0.3,
     },
