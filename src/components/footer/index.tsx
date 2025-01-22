@@ -41,7 +41,7 @@ export default function Footer() {
           >
             <div className="mb-4 sm:mb-0">
               <p className="text-gray-400">
-                © {new Date().getFullYear()} EditNow | all rights reserved.
+                © {new Date().getFullYear()} SpaceMedia | all rights reserved.
               </p>
             </div>
           </MotionDiv>
@@ -53,7 +53,7 @@ export default function Footer() {
         <ScrollToTop
           smooth
           top={2000}
-          component={<ChevronsUp color="#000" />}
+          component={<ChevronsUp color="#f5f5f5" />}
         />
 
         <ScrollToShowButton

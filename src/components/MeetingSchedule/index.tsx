@@ -24,11 +24,13 @@ interface CalNamespace {
 
 export default function MeetingSchedule() {
   useEffect(() => {
+    // Cal Embed Initialization
     (function (C: Window, A: string, L: string) {
-      const p = function (a: CalNamespace | Window["Cal"], ar: unknown[]) {
+      const p = (a: CalNamespace | Window["Cal"], ar: unknown[]) => {
         if (!a || !("q" in a)) return;
         a.q!.push(ar);
       };
+
       const d = C.document;
       C.Cal =
         C.Cal ||
@@ -39,6 +41,7 @@ export default function MeetingSchedule() {
             cal.q = [];
             const script = d.createElement("script");
             script.src = A;
+            script.async = true;
             d.head.appendChild(script);
             cal.loaded = true;
           }
@@ -62,14 +65,16 @@ export default function MeetingSchedule() {
         };
     })(window, "https://app.cal.com/embed/embed.js", "init");
 
-    // Initialize Cal Embed
+    // Initialize Cal Embed with Specific Options
     if (window.Cal) {
-      window.Cal("init", "30min-call", { origin: "https://cal.com" });
+      window.Cal("init", "spacemediaproduction/30min-call", {
+        origin: "https://cal.com",
+      });
 
-      window.Cal.ns?.["30min-call"]?.("inline", {
+      window.Cal.ns?.["spacemediaproduction/30min-call"]?.("inline", {
         elementOrSelector: "#my-cal-inline",
         config: { layout: "month_view" },
-        calLink: "editnow/30min-call",
+        calLink: "spacemediaproduction/30min-call",
       });
     }
   }, []);

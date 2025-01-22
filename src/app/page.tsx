@@ -17,7 +17,9 @@ import { MotionDiv } from "@/framer-motion/elements";
 import { containerVariants } from "@/framer-motion/variants";
 
 export default async function Home() {
-  const response = (await getVimeoShortFormatVideo({})) as VimeoResponse;
+  const response = (await getVimeoShortFormatVideo({
+    per_page: 30,
+  })) as VimeoResponse;
 
   return (
     <MotionDiv

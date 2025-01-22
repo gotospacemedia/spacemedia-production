@@ -31,7 +31,7 @@ export default function ViralCard({ cardData }: { cardData: ViralCardProps }) {
             </h2>
           </div>
           <div>
-            <p className="text-black capitalize text-lg leading-relaxed">
+            <p className="text-zinc-200 capitalize text-lg leading-relaxed">
               {cardData.description}
             </p>
           </div>

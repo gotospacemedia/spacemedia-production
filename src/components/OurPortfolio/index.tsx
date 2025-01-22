@@ -13,7 +13,7 @@ import {
 
 export default async function OurPortfolio() {
   const longFormatVideoresponse = (await getVimeoLongFormatVideo({
-    per_page: 6,
+    per_page: 9,
   })) as VimeoResponse;
 
   const filterLongVideoData = longFormatVideoresponse.data?.map((long) => {

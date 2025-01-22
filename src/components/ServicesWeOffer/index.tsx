@@ -13,17 +13,17 @@ import {
   Dumbbell,
   Film,
   Gamepad2,
-  Music,
   Palmtree,
   Shirt,
   ShoppingBag,
   Youtube,
   Utensils,
-  Camera,
   Smartphone,
   GraduationCap,
   Mic,
   Clapperboard,
+  Sparkles,
+  UtensilsCrossed,
 } from "lucide-react";
 
 const categories = [
@@ -35,15 +35,15 @@ const categories = [
       { name: "Gaming", icon: Gamepad2 },
       { name: "Fashion", icon: Shirt },
       { name: "Social Reels", icon: Smartphone },
-      { name: "Music", icon: Music },
       { name: "Product Videos", icon: ShoppingBag },
       { name: "Food", icon: Utensils },
+      { name: "Beauty", icon: Sparkles },
     ],
   },
   {
     title: "Long Format Videos",
     items: [
-      { name: "Vlogs", icon: Camera },
+      { name: "Cooking", icon: UtensilsCrossed },
       { name: "Nutrition", icon: Apple },
       { name: "Entrepreneurship", icon: Briefcase },
       { name: "Documentaries", icon: Film },

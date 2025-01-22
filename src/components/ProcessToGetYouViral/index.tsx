@@ -20,6 +20,7 @@ import { leftSideVariants } from "@/framer-motion/variants";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import { cn } from "@/lib/utils";
 
 const slides = [
   {
@@ -27,7 +28,9 @@ const slides = [
     description:
       "We Help You Sort Out The Best Content That Perfectly Aligns With Your Niche. How? You Answer Us Some Simple Questions And From There We Give You A Detailed Plan With Content Strategies, Competitor Analysis And Proper Keyword Research.",
     icon: Lightbulb,
-    bgColor: "bg-[#fe3eb4]",
+    bgColor: "bg-brand_primary",
+    titleColor: "text-white",
+    subTitleColor: "text-zinc-200",
   },
   {
     title: "Press the record button",
@@ -35,13 +38,17 @@ const slides = [
       "Record And Send! Hassle-Free Videos Will Be Ready For You In Less Than 48 Hrs. We Are Always Standby To Help You With Ideas, Gears And Everything Needed To Make You Look Like A Pro. Get A Free Drive Link With Unlimited Storage Just For You.",
     icon: Video,
     bgColor: "bg-[#fff]",
+    titleColor: "text-black",
+    subTitleColor: "text-zinc-600",
   },
   {
     title: "Retention-based video editing",
     description:
       "Keep those eyes locked on your video with our clean and fast retention-based edits. Get your own unique style with the trendiest edits from our animators, not only in the intro but make the entire video locked in your audience's eyes and get the views at lightning speed.",
     icon: MousePointerClick,
-    bgColor: "bg-[#fe3eb4]",
+    bgColor: "bg-brand_primary",
+    titleColor: "text-white",
+    subTitleColor: "text-zinc-200",
   },
   {
     title: "Creative thumbnails with your master video",
@@ -49,13 +56,17 @@ const slides = [
       "We make thumbnails that stop your scrolling, make your eyes pop and force you to click on the video! We give you a range of thumbnails to do your A/B testing and check out what works the best for you.",
     icon: Clapperboard,
     bgColor: "bg-[#fff]",
+    titleColor: "text-black",
+    subTitleColor: "text-zinc-600",
   },
   {
     title: "Rank your videos to the top",
     description:
       "Beat your competition and reach the top with our secret SEO strategies. Get more pumped to YouTube's suggested videos. We give you a thorough report of your channel's view count, clickthrough rate, conversion, subscriber count and everything that you can just glance through.",
     icon: Search,
-    bgColor: "bg-[#fe3eb4]",
+    bgColor: "bg-brand_primary",
+    titleColor: "text-white",
+    subTitleColor: "text-zinc-200",
   },
   {
     title: "Generate views, watch your channel grow",
@@ -63,6 +74,8 @@ const slides = [
       "We get you the maximum watch time, subscribers, followers that are sure to stick with you for a long long time! We do it all for you from content ideas, to editing, to testing to publishing it in a detailed manner. You just have to sit back, relax and watch yourself at the top of the game.",
     icon: TrendingUp,
     bgColor: "bg-[#fff]",
+    titleColor: "text-black",
+    subTitleColor: "text-zinc-600",
   },
 ];
 
@@ -158,11 +171,13 @@ export default function ProcessToGetYouViral() {
                 <div className="mb-6">
                   <slide.icon className="w-10 h-10 text-background" />
                 </div>
-                <h3 className={`text-2xl mt-5 font-bold text-background`}>
+                <h3 className={`${slide.titleColor} text-2xl mt-5 font-bold`}>
                   {slide.title}
                 </h3>
                 <p
-                  className={`font-medium capitalize text-[#4b4646] text-lg mt-10 max-sm:mt-4 leading-relaxed`}
+                  className={cn(
+                    `${slide.subTitleColor} font-medium capitalize text-lg mt-10 max-sm:mt-4 leading-relaxed`
+                  )}
                 >
                   {slide.description}
                 </p>

@@ -1,5 +1,5 @@
-import logo_White from "@/assets/white-logo-1.png";
-import logo_Dark from "@/assets/black-logo-1.png";
+import logo_White from "@/assets/Space-Logo-Light.png";
+import logo_Dark from "@/assets/Space-Logo-Dark.png";
 import Image from "next/image";
 
 const Logo = ({ variant = "light" }: { variant?: "light" | "dark" }) => {

@@ -92,14 +92,14 @@ body {
   }
 
   .btn_primary {
-    @apply !bg-brand_primary hover:!bg-brand_primary/80 hover:!custom_shadow text-base px-6 py-7 font-medium text-background hover:text-foreground transition-colors w-full;
+    @apply !bg-brand_primary hover:!bg-brand_primary/80 hover:!custom_shadow text-base px-6 py-7 font-medium text-white hover:text-foreground transition-colors w-full;
   }
   .btn_secondary {
     @apply !bg-zinc-800 hover:!bg-zinc-700 hover:!custom_shadow text-base px-7 py-7 font-medium text-foreground transition-colors  hover:text-brand_primary backdrop-blur-sm w-full;
   }
 
   .custom_shadow{
-    box-shadow: 8px 8px 50px #61083f80;
+    box-shadow: 8px 8px 20px #401361ce;
   }
 }
 

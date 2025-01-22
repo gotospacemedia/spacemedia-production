@@ -21,7 +21,7 @@ export default function MarketingSection() {
           </h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl">
             In a short 30-minute demo call, we&apos;d love to explain more about
-            EditNow and the options we can offer your brand.
+            SpaceMedia and the options we can offer your brand.
           </p>
           <Link href={"/call"}>
             <Button className="btn_primary">

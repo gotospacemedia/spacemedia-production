@@ -16,13 +16,13 @@ import {
 } from "@/framer-motion/variants";
 
 export default async function Portfolio() {
-  const shortFormatVideoresponse = (await getVimeoShortFormatVideo(
-    {}
-  )) as VimeoResponse;
+  const shortFormatVideoresponse = (await getVimeoShortFormatVideo({
+    per_page: 100,
+  })) as VimeoResponse;
   // console.log(shortFormatVideoresponse);
-  const longFormatVideoresponse = (await getVimeoLongFormatVideo(
-    {}
-  )) as VimeoResponse;
+  const longFormatVideoresponse = (await getVimeoLongFormatVideo({
+    per_page: 100,
+  })) as VimeoResponse;
   // console.log({ longFormatVideoresponse });
 
   const filterShortVideoData = shortFormatVideoresponse.data?.map((short) => {
