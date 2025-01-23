@@ -24,37 +24,23 @@ const viralCardData: ViralCardProps[] = [
   {
     title: "VIRAL EDITS",
     percentage: "200%",
-    subtitle: "VIEWS INCREASE",
+    subtitle: "More Exposure",
     description:
-      "Want Your Audience To Watch Your Entire Video? Get It Done With Our Highly Engaging Edits! Retention-Based Edits Is The Easiest Way To Increase Your Watch Time Which Boosts The YouTube Algorithm To Push Out Your Content To The Mass Audience.",
+      "Our expert editing techniques leverage trending formats and cultural nuances to create videos that resonate deeply with local audiences. We craft content that is not only entertaining but also shareable, maximizing your reach and engagement.",
   },
   {
-    title: "Thumbnails",
-    percentage: "15%",
-    subtitle: "CTR increase",
-    description:
-      "Want your audience to stop scrolling? Get our clickable/ killer thumbnails that is sure to get the CTR high. A compelling thumbnail makes your content more eye-catching, appealing, the higher the CTR the higher your views!",
-  },
-  {
-    title: "Engaging Title",
-    percentage: "10%",
-    subtitle: "More Clicks",
-    description:
-      "Did you know 80% of your ranking depends on a good title? Dont worry! We generate banger/crazy titles for you.  Titles spark curiosity, and help you reach to the top of YouTube search result through proper keywords and tags.",
-  },
-  {
-    title: "SEO",
+    title: "reach",
     percentage: "30%",
-    subtitle: "More Reach",
+    subtitle: "more Viewership",
     description:
-      "Killer videos but no reach? Our team helps you rank first on YouTube with proper SEO optimization & tags. SEO helps you rank better as well as pop up in YouTube’s suggested videos.",
+      "Our cost-effective solutions deliver exceptional results. With 30% more reach and 5X more engagement, we help you build a strong social presence and connect with your target audience in Bangladesh.",
   },
   {
     title: "Fire Hooks",
     percentage: "5X",
     subtitle: "More Engagement",
     description:
-      "8 seconds is all you get for your viewers attention! Want to get your reels viral? Get the best hooks from your existing videos! Hooks get you the immediate engagements and cut down the click-away rates to almost 50%",
+      "Our Fire Hooks techniques ensure your videos keep audiences captivated from start to finish. Experience engagement that was never seen before and build a loyal following.",
   },
 ];
 

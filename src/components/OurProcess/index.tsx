@@ -17,23 +17,23 @@ const steps: ProcessStep[] = [
     number: 1,
     title: "Introduction",
     description:
-      "We take video and analyze to understand your business better. We start with a conversation to get to know your goals and the obstacles you face. Together, we determine if there's a good fit.",
+      "We connect with clients via direct text or phone calls to understand for quick and focused discussion. We discuss their project vision and gather information to determine the best path forward which perfectly aligns with their goals.",
   },
   {
     number: 2,
     title: "Onboarding",
     description:
-      "After agreement, your dedicated contact person will partner with you. As mentioned in our introduction, we'll begin by analyzing your videos, then discuss your vision, and work together to elevate your content.",
+      "After confirmation, a dedicated specialist will be assigned to your project. We'll begin by conducting a thorough consultation to understand your creative vision, and desired aesthetic. We'll review your references and explore innovative ways to enhance your content, ensuring alignment with your specific requirements.",
   },
 
   {
-    number: 4,
+    number: 3,
     title: "Post-production",
     description:
       "We deliver professional video production with expert editing, stunning visuals, and immersive sound. Our team adds polished graphics, music, and sound effects, and fine-tunes color grading for a polished look.",
   },
   {
-    number: 5,
+    number: 4,
     title: "Completion",
     description:
       "After delivery, you have space to provide feedback. We make sure everything is exactly in line with your vision and goals. We also welcome video review and correction to ensure the final product meets your expectations perfectly.",
@@ -60,7 +60,7 @@ export default function OurProcess() {
         >
           {steps.map((step) => (
             <MotionDiv variants={fadeInVariants} key={step.number}>
-              <Card className="border-gray-700 hover:border-gray-600 hover:custom_shadow">
+              <Card className="border-gray-700 hover:border-gray-600 hover:custom_shadow md:min-h-[355px]  lg:min-h-[300px]">
                 <CardHeader>
                   <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center mb-4">
                     <span className="text-brand_primary">{step.number}</span>

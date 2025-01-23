@@ -10,7 +10,6 @@ import {
   Lightbulb,
   Video,
   TrendingUp,
-  Search,
   Clapperboard,
   MousePointerClick,
 } from "lucide-react";
@@ -33,16 +32,16 @@ const slides = [
     subTitleColor: "text-zinc-200",
   },
   {
-    title: "Press the record button",
+    title: "YOUR VISION POLISHED TO PERFECTION",
     description:
-      "Record And Send! Hassle-Free Videos Will Be Ready For You In Less Than 48 Hrs. We Are Always Standby To Help You With Ideas, Gears And Everything Needed To Make You Look Like A Pro. Get A Free Drive Link With Unlimited Storage Just For You.",
+      "We transform your vision into stunning photos and videos that resonate with your audience. We handle every stage of the creative process, ensuring your message shines.",
     icon: Video,
     bgColor: "bg-[#fff]",
     titleColor: "text-black",
     subTitleColor: "text-zinc-600",
   },
   {
-    title: "Retention-based video editing",
+    title: "RETENTION BASED SERVICES",
     description:
       "Keep those eyes locked on your video with our clean and fast retention-based edits. Get your own unique style with the trendiest edits from our animators, not only in the intro but make the entire video locked in your audience's eyes and get the views at lightning speed.",
     icon: MousePointerClick,
@@ -51,31 +50,22 @@ const slides = [
     subTitleColor: "text-zinc-200",
   },
   {
-    title: "Creative thumbnails with your master video",
+    title: "Data-Driven Strategies for Channel Growth",
     description:
-      "We make thumbnails that stop your scrolling, make your eyes pop and force you to click on the video! We give you a range of thumbnails to do your A/B testing and check out what works the best for you.",
+      "We analyze audience trends and create content that resonates. From photography and videography to expert post-production, we leverage data to optimize your content for maximum views, subscribers, and engagement.",
     icon: Clapperboard,
     bgColor: "bg-[#fff]",
     titleColor: "text-black",
     subTitleColor: "text-zinc-600",
   },
   {
-    title: "Rank your videos to the top",
+    title: "Generate views, watch your channel grow",
     description:
-      "Beat your competition and reach the top with our secret SEO strategies. Get more pumped to YouTube's suggested videos. We give you a thorough report of your channel's view count, clickthrough rate, conversion, subscriber count and everything that you can just glance through.",
-    icon: Search,
+      "We get you the maximum watch time, followers that are sure to stick with you for a long long time! We do it all for you from content ideas, to photoshoots & videoShoots, to testing to publishing it in a detailed manner. You just have to sit back, relax and watch yourself at the top of the game.",
+    icon: TrendingUp,
     bgColor: "bg-brand_primary",
     titleColor: "text-white",
     subTitleColor: "text-zinc-200",
-  },
-  {
-    title: "Generate views, watch your channel grow",
-    description:
-      "We get you the maximum watch time, subscribers, followers that are sure to stick with you for a long long time! We do it all for you from content ideas, to editing, to testing to publishing it in a detailed manner. You just have to sit back, relax and watch yourself at the top of the game.",
-    icon: TrendingUp,
-    bgColor: "bg-[#fff]",
-    titleColor: "text-black",
-    subTitleColor: "text-zinc-600",
   },
 ];
 
@@ -166,12 +156,14 @@ export default function ProcessToGetYouViral() {
               className="!w-[90%] md:!w-[65%] lg:!w-[45%] px-2"
             >
               <div
-                className={`${slide.bgColor} rounded-3xl p-8 min-h-[460px] md:min-h-[400px] lg flex flex-col  `}
+                className={`${slide.bgColor} rounded-3xl p-8 min-h-[490px] md:min-h-[450px] lg:min-h-[470px] lg flex flex-col  `}
               >
                 <div className="mb-6">
                   <slide.icon className="w-10 h-10 text-background" />
                 </div>
-                <h3 className={`${slide.titleColor} text-2xl mt-5 font-bold`}>
+                <h3
+                  className={`${slide.titleColor} text-2xl mt-5 font-bold uppercase`}
+                >
                   {slide.title}
                 </h3>
                 <p

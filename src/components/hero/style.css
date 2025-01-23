@@ -35,3 +35,16 @@
     transform: translateY(-400%);
   }
 }
+
+
+.bg-glow-left {
+  background: radial-gradient(circle at left, rgba(0, 140, 255, 0.2) 0%, rgba(0, 0, 255, 0) 50%);
+  filter: blur(30px);
+  opacity: 0.3;
+}
+
+.bg-glow-right {
+  background: radial-gradient(circle at right, rgba(0, 0, 255, 0.2) 0%, rgba(0, 0, 255, 0) 70%);
+  filter: blur(60px);
+  opacity: 0.5;
+}

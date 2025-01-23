@@ -16,21 +16,11 @@ export default function Hero() {
     <section
       className={cn("relative py-10 px-2 md:min-h-[350px] overflow-hidden")}
     >
-      {/* Decorative background curve */}
-      <div className="absolute inset-0 z-0">
-        <svg
-          className="h-full w-full"
-          viewBox="0 0 1440 800"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M-200 600 Q 400 -100 1600 400"
-            stroke="#401361ce"
-            strokeWidth="3"
-          />
-        </svg>
-      </div>
+      {/* Left glow */}
+      <div className="absolute top-0 left-0 w-1/2 h-full bg-glow-left" />
+
+      {/* Right glow */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-glow-right" />
 
       <div className="container relative mx-auto max-w-4xl text-center">
         {/* Main heading */}

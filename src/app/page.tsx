@@ -4,12 +4,10 @@ import Hero from "@/components/hero";
 import ShortVideoSlider from "@/components/ShortVideoSlider";
 import GrowingBrandsSlider from "@/components/growing-brands-slider";
 import ComparisonSection from "@/components/comparison-section";
-import OurPortfolio from "@/components/OurPortfolio";
 import OurProcess from "@/components/OurProcess";
 import CreatorsWeWorkWith from "@/components/creators-we-work-with";
 import MarketingSection from "@/components/MarketingSection";
 import ServicesWeOffer from "@/components/ServicesWeOffer";
-import FeatureCards from "@/components/feature-cards";
 import ProcessToGetYouViral from "@/components/ProcessToGetYouViral";
 import FactorsDriveGrowth from "@/components/FactorsDriveGrowth";
 import Faq from "@/components/faq";
@@ -36,8 +34,7 @@ export default async function Home() {
       <ProcessToGetYouViral />
       <FactorsDriveGrowth />
       <OurProcess />
-      <FeatureCards />
-      <OurPortfolio />
+
       <MarketingSection />
       <CreatorsWeWorkWith />
       <ComparisonSection />
