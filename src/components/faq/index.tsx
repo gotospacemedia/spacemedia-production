@@ -24,7 +24,7 @@ const faqData = [
   {
     question: "How experienced is your team?",
     answer:
-      "Our team consists of highly skilled professionals with years of experience in the industry. We have a proven track record of delivering exceptional results. *link of a work*",
+      "Our team consists of highly skilled professionals with years of experience in the industry. We have a proven track record of delivering exceptional results.",
   },
   {
     question: "What types of videos do you specialize in?",

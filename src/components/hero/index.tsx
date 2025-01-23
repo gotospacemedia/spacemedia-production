@@ -14,7 +14,9 @@ import "./style.css";
 export default function Hero() {
   return (
     <section
-      className={cn("relative py-10 px-2 md:min-h-[350px] overflow-hidden")}
+      className={cn(
+        "relative py-10 px-2 md:min-h-[500px] flex flex-col justify-center items-center overflow-hidden"
+      )}
     >
       {/* Left glow */}
       <div className="absolute top-0 left-0 w-1/2 h-full bg-glow-left" />

@@ -24,7 +24,7 @@ export default function ShortVideoSlider({ stories }: { stories: Story[] }) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="w-full py-8 overflow-hidden"
+      className="w-full py-8 overflow-hidden custom_shadow"
     >
       <Fancybox
         options={{
