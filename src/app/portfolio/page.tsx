@@ -1,47 +1,22 @@
-import Fancybox from "@/components/global/fancybox";
-import { Play } from "lucide-react";
 import Image from "next/image";
+import { Play } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-import {
-  getVimeoLongFormatVideo,
-  getVimeoShortFormatVideo,
-  VimeoResponse,
-} from "@/lib/vimeo";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { MotionDiv } from "@/framer-motion/elements";
 import {
   bottomSideVariants,
   containerVariants,
   fadeInVariants,
 } from "@/framer-motion/variants";
+import { vimeoFolderPath, type VimeoFolderKey } from "@/constant";
+import { getVimeoVideo, type VimeoResponse } from "@/lib/vimeo";
+import Fancybox from "@/components/global/fancybox";
+import { useMemo, memo } from "react";
 
-export default async function Portfolio() {
-  const shortFormatVideoresponse = (await getVimeoShortFormatVideo({
-    per_page: 100,
-  })) as VimeoResponse;
-  // console.log(shortFormatVideoresponse);
-  const longFormatVideoresponse = (await getVimeoLongFormatVideo({
-    per_page: 100,
-  })) as VimeoResponse;
-  // console.log({ longFormatVideoresponse });
+const folderKeys = Object.keys(vimeoFolderPath) as VimeoFolderKey[];
 
-  const filterShortVideoData = shortFormatVideoresponse.data?.map((short) => {
-    return {
-      id: short?.video?.pictures?.base_link,
-      name: short?.video?.name,
-      thumbnail: short?.video?.pictures?.base_link,
-      video: short?.video?.link,
-    };
-  });
-
-  const filterLongVideoData = longFormatVideoresponse.data?.map((long) => {
-    return {
-      id: long?.video?.pictures?.base_link,
-      name: long?.video?.name,
-      thumbnail: long?.video?.pictures?.base_link,
-      video: long?.video?.link,
-    };
-  });
+export default function Portfolio() {
+  const memoizedFolderKeys = useMemo(() => folderKeys, []);
 
   return (
     <MotionDiv
@@ -68,103 +43,110 @@ export default async function Portfolio() {
         </MotionDiv>
 
         <MotionDiv variants={bottomSideVariants}>
-          {/* Portfolio */}
           <h3 className="text-2xl md:text-3xl font-semibold text-center mb-8 text-white">
             Our Portfolio
           </h3>
 
-          <Tabs defaultValue="short" className="container mx-auto text-white">
-            <TabsList className="mb-5">
-              <TabsTrigger value="short"> Short Format</TabsTrigger>
-              <TabsTrigger value="long"> Long Format</TabsTrigger>
-            </TabsList>
-            <TabsContent value="short">
-              <Fancybox
-                options={{
-                  Carousel: {
-                    infinite: false,
-                    Thumbs: false,
-                  },
-                }}
-              >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
-                  {filterShortVideoData?.map((story) => (
-                    <div key={story?.id} className="w-full h-full">
-                      <a
-                        href={story?.video}
-                        data-fancybox="shortformat"
-                        className="w-full h-full"
-                      >
-                        <button
-                          className={`w-full h-full relative overflow-hidden rounded-2xl  border-0`}
-                        >
-                          <Image
-                            src={story?.thumbnail}
-                            alt={story?.name}
-                            width={500}
-                            height={700}
-                            className="h-full w-full object-cover"
-                          />
-                          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20">
-                            <div
-                              className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition-transform hover:scale-110"
-                              aria-hidden="true"
-                            >
-                              <Play className="h-6 w-6" />
-                            </div>
-                          </div>
-                        </button>
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </Fancybox>
-            </TabsContent>
-            <TabsContent value="long">
-              <Fancybox
-                options={{
-                  Carousel: {
-                    infinite: false,
-                    Thumbs: false,
-                  },
-                }}
-              >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
-                  {filterLongVideoData?.map((long) => (
-                    <div key={long?.id} className="w-full h-full">
-                      <a
-                        href={long?.video}
-                        data-fancybox="longformat"
-                        className="w-full h-full"
-                      >
-                        <button
-                          className={`w-full h-full relative overflow-hidden rounded-2xl  border-0`}
-                        >
-                          <Image
-                            src={long?.thumbnail}
-                            alt={long?.name}
-                            width={500}
-                            height={700}
-                            className="h-full w-full object-cover"
-                          />
-                          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20">
-                            <div
-                              className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition-transform hover:scale-110"
-                              aria-hidden="true"
-                            >
-                              <Play className="h-6 w-6" />
-                            </div>
-                          </div>
-                        </button>
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </Fancybox>
-            </TabsContent>
+          <Tabs
+            defaultValue={memoizedFolderKeys[0]}
+            className="container mx-auto text-white"
+          >
+            <ScrollArea className="w-full max-w-max mx-auto">
+              <TabsList className="inline-flex h-16 items-center justify-start bg-transparent p-0">
+                {memoizedFolderKeys.map((folder) => (
+                  <TabsTrigger
+                    key={folder}
+                    value={folder}
+                    className="capitalize"
+                  >
+                    {folder.split("_").join(" ")}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+
+            {memoizedFolderKeys.map((folder) => (
+              <TabsContentWrapper key={folder} folder={folder} />
+            ))}
           </Tabs>
         </MotionDiv>
       </section>
     </MotionDiv>
   );
 }
+
+interface VideoItem {
+  id: string;
+  name: string;
+  thumbnail: string;
+  video: string;
+}
+
+const VideoItem = memo(({ story }: { story: VideoItem }) => (
+  <div className="w-full h-full">
+    <a href={story.video} data-fancybox="shortformat" className="w-full h-full">
+      <button className="w-full h-full relative overflow-hidden rounded-2xl border-0">
+        <Image
+          src={story.thumbnail || "/placeholder.svg"}
+          alt={story.name}
+          width={500}
+          height={700}
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20">
+          <div
+            className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition-transform hover:scale-110"
+            aria-hidden="true"
+          >
+            <Play className="h-6 w-6" />
+          </div>
+        </div>
+      </button>
+    </a>
+  </div>
+));
+
+VideoItem.displayName = "VideoItem";
+
+const TabsContentWrapper = memo(({ folder }: { folder: VimeoFolderKey }) => {
+  return (
+    <TabsContent key={folder} value={folder}>
+      <VideoContent folder={folder} />
+    </TabsContent>
+  );
+});
+
+TabsContentWrapper.displayName = "TabsContentWrapper";
+
+const VideoContent = async ({ folder }: { folder: VimeoFolderKey }) => {
+  const vimeoResponse = (await getVimeoVideo({
+    path: vimeoFolderPath[folder],
+    per_page: 100,
+  })) as VimeoResponse;
+
+  const filterVideoData =
+    vimeoResponse.data?.map((long) => ({
+      id: long?.video?.pictures?.base_link ?? "",
+      name: long?.video?.name ?? "",
+      thumbnail: long?.video?.pictures?.base_link ?? "",
+      video: long?.video?.link ?? "",
+    })) ?? [];
+
+  return (
+    <Fancybox
+      options={{
+        Carousel: {
+          infinite: false,
+          Thumbs: false,
+        },
+      }}
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
+        {filterVideoData.map((story) => (
+          <VideoItem key={story.id} story={story} />
+        ))}
+      </div>
+    </Fancybox>
+  );
+};

@@ -27,7 +27,7 @@ export default function Hero() {
       <div className="container relative mx-auto max-w-4xl text-center">
         {/* Main heading */}
         <MotionDiv variants={leftSideVariants} className="md:mb-6">
-          <h1 className="text-[100px] max-md:text-[70px] max-sm:text-[50px] text-center font-bold text-white capitalize  leading-[100px] max-md:leading-[80px] max-sm:leading-[50px]">
+          <h1 className="text-[100px] max-md:text-[70px] max-sm:text-[45px] text-center font-bold text-white capitalize  leading-[100px] max-md:leading-[80px] max-sm:leading-[50px]">
             Grow superfast
           </h1>
           <div className="flex justify-center mt-2">
@@ -35,7 +35,7 @@ export default function Hero() {
               on
             </h1>
 
-            <div className="text-[100px] max-md:text-[70px] max-sm:text-[50px] h-[6rem] max-md:h-[4.5rem]  max-sm:h-[3rem] overflow-hidden words">
+            <div className="text-[100px] max-md:text-[70px] max-sm:text-[45px] h-[6rem] max-md:h-[4.5rem]  max-sm:h-[3rem] overflow-hidden words">
               <p className="ml-8 max-sm:ml-2 text-left font-bold zip capitalize  leading-[100px] max-md:leading-[80px] max-sm:leading-[50px]">
                 youtube
               </p>
@@ -46,7 +46,7 @@ export default function Hero() {
                 tiktok
               </p>
               <p className="ml-8 max-sm:ml-2 text-left font-bold zip capitalize  leading-[100px] max-md:leading-[80px] max-sm:leading-[50px]">
-                linkedin
+                facebook
               </p>
               <p className="ml-8 max-sm:ml-2 text-left font-bold zip capitalize  leading-[100px] max-md:leading-[80px] max-sm:leading-[50px]">
                 youtube
@@ -61,7 +61,7 @@ export default function Hero() {
         {/* Subtitle */}
         <MotionP
           variants={rightSideVariants}
-          className="mb-5 md:mb-12 text-lg text-gray-400"
+          className="mb-5 md:mb-12 text-gray-400"
         >
           We are the wizards that transforms your creative vision into stunning
           reality in lightspeed.

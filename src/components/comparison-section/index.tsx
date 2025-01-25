@@ -39,11 +39,10 @@ export default function ComparisonSectionExact() {
               <CardContent>
                 <ul className="space-y-4">
                   {[
-                    "Lack of focus on viral strategies can lead to limited viewership, unlike SpaceMedia's proven 200% increase in views.",
-                    "May focus on short–term projects and lack long-term client relationships and real time progress tracking.",
-                    "May not achieve similar results without strong title optimization.",
-                    "Prioritize their own processes over the client’s needs and have extremely long delivery time.",
-                    "May lack the expertise in creating compelling hooks and optimizing thumbnails for maximum viewer engagement with low level of retention rate.",
+                    "May focus on short–term projects and lack long-term client relationships.",
+                    "Prioritize their own processes over the client's needs and have extremely long delivery time.",
+                    "May lack the expertise in creating compelling hooks for maximum viewer engagement with a low level of retention rate.",
+                    "May have high turnover rates, leading to inconsistent service quality.",
                   ].map((text, index) => (
                     <li
                       key={index}
@@ -60,7 +59,7 @@ export default function ComparisonSectionExact() {
             </Card>
           </MotionDiv>
 
-          {/* EditFlow Column */}
+          {/* SpaceMedia Column */}
           <MotionDiv variants={fadeInVariants} className="flex-1">
             <Card className="bg-brand_primary/70 hover:bg-brand_primary/80 hover:custom_shadow">
               <CardHeader>
@@ -71,11 +70,10 @@ export default function ComparisonSectionExact() {
               <CardContent>
                 <ul className="space-y-4">
                   {[
-                    "Achieved a 200% views increase within 4 weeks for our clients through data-driven, viral-worthy creative strategies.",
-                    "Builds long-term partnerships with clients based on trust and mutual success along with real time progress tracking CRM tools.",
-                    "We also help to get 30% More Reach with SEO-optimized titles and tags",
-                    "We prioritize the client’s needs and goals first with the record of never missing a deadline.",
-                    "SpaceMedia uses Fire Hooks and optimized thumbnails to create captivating content that hooks viewers which leads to a 5x higher engagement and retention rate",
+                    "Builds long-term partnerships with clients based on trust and mutual success.",
+                    "We prioritize the client's needs and goals first with the record of never missing a deadline.",
+                    "SpaceMedia uses Fire Hooks to create captivating content that hooks viewers which leads to a 5x higher engagement and retention rate.",
+                    "Space has a skilled and reliable team with a history of success.",
                   ].map((text, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="bg-background p-1 rounded-full">

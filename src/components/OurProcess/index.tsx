@@ -23,20 +23,20 @@ const steps: ProcessStep[] = [
     number: 2,
     title: "Onboarding",
     description:
-      "After confirmation, a dedicated specialist will be assigned to your project. We'll begin by conducting a thorough consultation to understand your creative vision, and desired aesthetic. We'll review your references and explore innovative ways to enhance your content, ensuring alignment with your specific requirements.",
+      "After you confirm, we'll assign a specialist to your project. He’ll talk to you to understand your vision and style. We'll look at your references and find creative ways to make your content better, making sure it fits your needs.",
   },
 
   {
     number: 3,
-    title: "Post-production",
+    title: "Production",
     description:
-      "We deliver professional video production with expert editing, stunning visuals, and immersive sound. Our team adds polished graphics, music, and sound effects, and fine-tunes color grading for a polished look.",
+      "Once a date is fixed for shoot,our skilled cinematographer will use professional equipment to capture stunning photos and videos.We collaborate with you to select perfect location if its not a studio shoot.We work closely with you closely throughout the day.",
   },
   {
     number: 4,
     title: "Completion",
     description:
-      "After delivery, you have space to provide feedback. We make sure everything is exactly in line with your vision and goals. We also welcome video review and correction to ensure the final product meets your expectations perfectly.",
+      "Space’s expert editors,edit your videos with high-quality sound and visuals. After It's done, you can give us feedback. We'll make sure everything is perfect and meets your expectations.",
   },
 ];
 

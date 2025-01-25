@@ -84,10 +84,10 @@ export default function ServicesWeOffer() {
                     {category.items.map((item) => (
                       <div
                         key={item.name}
-                        className="flex items-center p-4 bg-zinc-900 rounded-lg"
+                        className="flex flex-col justify-center items-center p-4 bg-zinc-900 rounded-lg"
                       >
                         <item.icon className="w-6 h-6 mr-2 text-primary" />
-                        <span>{item.name}</span>
+                        <span className="text-center">{item.name}</span>
                       </div>
                     ))}
                   </div>

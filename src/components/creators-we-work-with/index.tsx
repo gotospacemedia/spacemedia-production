@@ -115,9 +115,7 @@ export default function CreatorsWeWorkWith() {
       className="section_wrapper"
     >
       <div>
-        <h2 className="heading_1">
-          Brands Or Creators <br /> We Have Worked With
-        </h2>
+        <h2 className="heading_1 !uppercase ">Creators We Have Worked With</h2>
       </div>
       <Swiper
         modules={[FreeMode, Autoplay]}

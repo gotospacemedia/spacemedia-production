@@ -1,4 +1,4 @@
-import { getVimeoShortFormatVideo, VimeoResponse } from "@/lib/vimeo";
+import { getVimeoVideo, VimeoResponse } from "@/lib/vimeo";
 
 import Hero from "@/components/hero";
 import ShortVideoSlider from "@/components/ShortVideoSlider";
@@ -13,9 +13,13 @@ import FactorsDriveGrowth from "@/components/FactorsDriveGrowth";
 import Faq from "@/components/faq";
 import { MotionDiv } from "@/framer-motion/elements";
 import { containerVariants } from "@/framer-motion/variants";
+import HowWeHelpEcomBrand from "@/components/HowWeHelpEcomBrand";
+import { vimeoFolderPath } from "@/constant";
+import InstagramReels from "@/components/InstagramReels";
 
 export default async function Home() {
-  const response = (await getVimeoShortFormatVideo({
+  const response = (await getVimeoVideo({
+    path: vimeoFolderPath.shorts_videos,
     per_page: 30,
   })) as VimeoResponse;
 
@@ -31,14 +35,15 @@ export default async function Home() {
       <ShortVideoSlider stories={response?.data} />
       <GrowingBrandsSlider />
       <ServicesWeOffer />
+      <CreatorsWeWorkWith />
+      <HowWeHelpEcomBrand />
+      <OurProcess />
+      <MarketingSection />
+      <ComparisonSection />
       <ProcessToGetYouViral />
       <FactorsDriveGrowth />
-      <OurProcess />
-
-      <MarketingSection />
-      <CreatorsWeWorkWith />
-      <ComparisonSection />
       <Faq />
+      <InstagramReels />
     </MotionDiv>
   );
 }

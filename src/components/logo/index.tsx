@@ -6,7 +6,7 @@ const Logo = ({ variant = "light" }: { variant?: "light" | "dark" }) => {
   const logo = variant === "dark" ? logo_Dark : logo_White;
   return (
     <div>
-      <Image src={logo} alt="logo" className="w-[110px] md:w-[120px]" />
+      <Image src={logo} alt="logo" className="w-[130px] md:w-[150px]" />
     </div>
   );
 };

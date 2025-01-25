@@ -51,9 +51,9 @@ const visby = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "EditNow",
+  title: "SpaceMedia",
   description:
-    "We are EditNow, a video editing service provider dedicated to transforming your creative visions into stunning reality",
+    "We are the wizards that transforms your creative vision into stunning reality in lightspeed.",
 };
 
 export default function RootLayout({
