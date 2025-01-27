@@ -35,8 +35,8 @@ const navMenu = [
     link: "/portfolio",
   },
   {
-    label: "Case Studies",
-    link: "/case-studies",
+    label: "Photography",
+    link: "/photography",
   },
   {
     label: "FAQs",

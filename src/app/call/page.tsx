@@ -13,6 +13,7 @@ export default async function DemoCall() {
     path: vimeoFolderPath.shorts_videos,
     per_page: 30,
   })) as VimeoResponse;
+
   return (
     <MotionDiv
       variants={containerVariants}

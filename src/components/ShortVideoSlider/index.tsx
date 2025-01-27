@@ -38,7 +38,6 @@ export default function ShortVideoSlider({ stories }: { stories: Story[] }) {
           gradient
           gradientColor="#131212"
           gradientWidth={50}
-          pauseOnHover
           autoFill
           speed={100}
         >

@@ -49,3 +49,21 @@ export const getVimeoVideo = ({
     );
   });
 };
+
+export const getVimeoVideoById = async ({ videoId }: { videoId: string }) => {
+  const accessToken = process.env.VIMEO_ACCESS_TOKEN;
+  const url = `https://api.vimeo.com/videos/${videoId}`;
+
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Vimeo thumbnail:", error);
+  }
+};

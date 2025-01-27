@@ -142,7 +142,7 @@ export default function CreatorsWeWorkWith() {
                 src={creator.image}
                 alt={creator.name}
                 width={500}
-                height={700}
+                height={625}
                 className="h-full w-full object-cover"
               />
 

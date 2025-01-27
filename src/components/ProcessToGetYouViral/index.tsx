@@ -15,11 +15,11 @@ import {
 } from "lucide-react";
 import { MotionSection } from "@/framer-motion/elements";
 import { leftSideVariants } from "@/framer-motion/variants";
+import { cn } from "@/lib/utils";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import { cn } from "@/lib/utils";
 
 const slides = [
   {
@@ -153,22 +153,22 @@ export default function ProcessToGetYouViral() {
           {slides.map((slide, index) => (
             <SwiperSlide
               key={index}
-              className="!w-[90%] md:!w-[65%] lg:!w-[45%] px-2"
+              className="!w-[92%] md:!w-[65%] lg:!w-[45%] px-2"
             >
               <div
-                className={`${slide.bgColor} rounded-3xl p-8 min-h-[490px] md:min-h-[450px] lg:min-h-[470px] lg flex flex-col  `}
+                className={`${slide.bgColor} rounded-3xl p-8 min-h-[520px] md:min-h-[430px]`}
               >
-                <div className="mb-6">
-                  <slide.icon className="w-10 h-10 text-background" />
+                <div className="mb-5">
+                  <slide.icon className="w-8 h-8 md:w-10 md:h-10 text-background" />
                 </div>
                 <h3
-                  className={`${slide.titleColor} text-2xl mt-5 font-bold uppercase`}
+                  className={`${slide.titleColor} text-xl md:text-2xl font-bold uppercase`}
                 >
                   {slide.title}
                 </h3>
                 <p
                   className={cn(
-                    `${slide.subTitleColor} font-medium capitalize text-lg mt-10 max-sm:mt-4 leading-relaxed`
+                    `${slide.subTitleColor} font-medium capitalize md:text-lg mt-10 max-sm:mt-4 leading-relaxed`
                   )}
                 >
                   {slide.description}

@@ -8,49 +8,53 @@ import {
   fadeInVariants,
 } from "@/framer-motion/variants";
 import {
-  Apple,
-  Briefcase,
-  Dumbbell,
-  Film,
-  Gamepad2,
-  Palmtree,
   Shirt,
   ShoppingBag,
   Youtube,
-  Utensils,
-  Smartphone,
-  GraduationCap,
+  Film,
   Mic,
-  Clapperboard,
+  GraduationCap,
   Sparkles,
   UtensilsCrossed,
+  Building,
+  Users,
 } from "lucide-react";
 
 const categories = [
   {
     title: "Short Format Videos",
     items: [
-      { name: "Fitness", icon: Dumbbell },
-      { name: "Lifestyle", icon: Palmtree },
-      { name: "Gaming", icon: Gamepad2 },
       { name: "Fashion", icon: Shirt },
-      { name: "Social Reels", icon: Smartphone },
-      { name: "Product Videos", icon: ShoppingBag },
-      { name: "Food", icon: Utensils },
+      { name: "Product", icon: ShoppingBag },
+      { name: "LifeStyle", icon: Sparkles },
       { name: "Beauty", icon: Sparkles },
     ],
   },
   {
     title: "Long Format Videos",
     items: [
-      { name: "Cooking", icon: UtensilsCrossed },
-      { name: "Nutrition", icon: Apple },
-      { name: "Entrepreneurship", icon: Briefcase },
       { name: "Documentaries", icon: Film },
-      { name: "Podcasts", icon: Mic },
-      { name: "Short Films", icon: Clapperboard },
+      { name: "Podcast", icon: Mic },
       { name: "YouTube Videos", icon: Youtube },
       { name: "Education", icon: GraduationCap },
+    ],
+  },
+  {
+    title: "Photo",
+    items: [
+      { name: "Fashion", icon: Shirt },
+      { name: "Product", icon: ShoppingBag },
+      { name: "LifeStyle", icon: Sparkles },
+      { name: "Beauty", icon: Sparkles },
+    ],
+  },
+  {
+    title: "Corporate",
+    items: [
+      { name: "Events", icon: UtensilsCrossed },
+      { name: "Documentaries", icon: Film },
+      { name: "Real Estate", icon: Building },
+      { name: "Testimonial", icon: Users },
     ],
   },
 ];
@@ -84,7 +88,7 @@ export default function ServicesWeOffer() {
                     {category.items.map((item) => (
                       <div
                         key={item.name}
-                        className="flex flex-col justify-center items-center p-4 bg-zinc-900 rounded-lg"
+                        className="flex flex-col justify-center items-center lg:flex-row lg:justify-start p-4 bg-zinc-900 rounded-lg"
                       >
                         <item.icon className="w-6 h-6 mr-2 text-primary" />
                         <span className="text-center">{item.name}</span>
