@@ -12,6 +12,8 @@ import { vimeoFolderPath, type VimeoFolderKey } from "@/constant";
 import { getVimeoVideo, type VimeoResponse } from "@/lib/vimeo";
 import Fancybox from "@/components/global/fancybox";
 import { useMemo, memo } from "react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const folderKeys = Object.keys(vimeoFolderPath) as VimeoFolderKey[];
 
@@ -62,6 +64,14 @@ export default function Portfolio() {
                     {folder.split("_").join(" ")}
                   </TabsTrigger>
                 ))}
+                <Link href={"/photography"}>
+                  <Button
+                    value="photography"
+                    className="capitalize bg-transparent border !border-brand_primary hover:bg-brand_primary !text-white"
+                  >
+                    photography
+                  </Button>
+                </Link>
               </TabsList>
               <ScrollBar orientation="horizontal" />
             </ScrollArea>

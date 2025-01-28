@@ -1,4 +1,4 @@
-import { fetchImages } from "@/lib/cloudinary";
+import { fetchImages, type CloudinaryImage } from "@/lib/cloudinary";
 import CldImageWrapper from "./CldImageWrapper";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -8,11 +8,25 @@ import {
   containerVariants,
 } from "@/framer-motion/variants";
 import Fancybox from "@/components/global/fancybox";
-import { memo } from "react";
 
 const folders = ["products", "fashion"];
 
-export default function Portfolio() {
+interface FolderImages {
+  [key: string]: CloudinaryImage[];
+}
+
+async function getFolderImages(): Promise<FolderImages> {
+  const imagePromises = folders.map((folder) => fetchImages(folder));
+  const results = await Promise.all(imagePromises);
+  return folders.reduce((acc, folder, index) => {
+    acc[folder] = results[index];
+    return acc;
+  }, {} as FolderImages);
+}
+
+export default async function Portfolio() {
+  const folderImages = await getFolderImages();
+
   return (
     <MotionDiv
       variants={containerVariants}
@@ -47,7 +61,9 @@ export default function Portfolio() {
             </ScrollArea>
 
             {folders.map((folder) => (
-              <TabsContentWrapper key={folder} folder={folder} />
+              <TabsContent key={folder} value={folder}>
+                <VideoContent images={folderImages[folder]} />
+              </TabsContent>
             ))}
           </Tabs>
         </MotionDiv>
@@ -56,18 +72,10 @@ export default function Portfolio() {
   );
 }
 
-const TabsContentWrapper = memo(({ folder }: { folder: string }) => {
-  return (
-    <TabsContent key={folder} value={folder}>
-      <VideoContent folder={folder} />
-    </TabsContent>
-  );
-});
-
-TabsContentWrapper.displayName = "TabsContentWrapper";
-
-const VideoContent = async ({ folder }: { folder: string }) => {
-  const images = await fetchImages(folder);
+function VideoContent({ images }: { images: CloudinaryImage[] }) {
+  if (images.length === 0) {
+    return <div>No images found</div>;
+  }
 
   return (
     <Fancybox
@@ -79,13 +87,12 @@ const VideoContent = async ({ folder }: { folder: string }) => {
       }}
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
-        {images?.map((image) => (
+        {images.map((image) => (
           <div key={image.asset_id} className="border rounded shadow">
-            {/* Use CldImage for optimized Cloudinary delivery */}
             <CldImageWrapper publicId={image.public_id} />
           </div>
         ))}
       </div>
     </Fancybox>
   );
-};
+}

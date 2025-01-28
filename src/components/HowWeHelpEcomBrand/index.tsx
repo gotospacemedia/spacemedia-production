@@ -5,7 +5,6 @@ import {
   containerVariants,
   fadeInVariants,
 } from "@/framer-motion/variants";
-
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -59,7 +58,7 @@ export default async function HowWeHelpEcomBrand() {
       className="section_wrapper"
       id="Services"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div>
           <h2 className="heading_1 max-w-[600px] mx-auto text-center">
             How we help creators or brands to scale even more profitably
@@ -91,13 +90,11 @@ const CardWrapper = async ({
     video: video?.link ?? "",
   };
 
-  console.log(filterData);
-
   return (
     <MotionDiv variants={fadeInVariants} key={card.title}>
       <Card
         className={cn(
-          "border-gray-700 hover:border-gray-600 hover:custom_shadow flex flex-col md:flex-row gap-8",
+          "border-gray-700 hover:border-gray-600 hover:custom_shadow flex flex-col md:flex-row gap-0",
           {
             "md:flex-row-reverse": (currentIndex + 1) % 2 == 0,
           }
@@ -115,10 +112,12 @@ const CardWrapper = async ({
             <div className="w-full h-full">
               <a
                 href={filterData.video}
-                data-fancybox="shortformat"
+                data-fancybox=""
                 className="w-full h-full"
               >
-                <button className="w-full h-full relative overflow-hidden rounded-2xl border-0">
+                <button
+                  className={`!max-w-[400px] !mx-auto relative overflow-hidden rounded-2xl border-0`}
+                >
                   <Image
                     src={filterData.thumbnail}
                     alt={filterData.name}

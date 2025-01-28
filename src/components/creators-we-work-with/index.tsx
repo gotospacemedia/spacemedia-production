@@ -49,7 +49,7 @@ const creators: CreatorsProps[] = [
   },
   {
     id: 4,
-    name: "Mumtaheena Chowdhury Toya",
+    name: "Mumtaheena Toya",
     image: "/creators/Mumtaheena-Chowdhury-Toya.png",
     followers: {
       facebook: "443k",
@@ -78,7 +78,7 @@ const creators: CreatorsProps[] = [
   },
   {
     id: 8,
-    name: "Z O H R A",
+    name: "Fatema Tuz ZOHRA",
     image: "/creators/ZOHRA.png",
     followers: {
       facebook: "180K",
@@ -160,7 +160,7 @@ export default function CreatorsWeWorkWith() {
                           alt="Facebook"
                           width={100}
                           height={100}
-                          className="h-6 w-6 object-cover"
+                          className="h-5 w-5 object-cover"
                         />
                         <span className="text-gray-300">
                           {creator.followers.facebook}
@@ -174,7 +174,7 @@ export default function CreatorsWeWorkWith() {
                           alt="Instagram"
                           width={100}
                           height={100}
-                          className="h-6 w-6 object-cover"
+                          className="h-5 w-5 object-cover"
                         />
                         <span className="text-gray-300">
                           {creator.followers.instagram}
@@ -188,7 +188,7 @@ export default function CreatorsWeWorkWith() {
                           alt="Tiktok"
                           width={100}
                           height={100}
-                          className="h-6 w-6 object-cover"
+                          className="h-5 w-5 object-cover"
                         />
                         <span className="text-gray-300">
                           {creator.followers.tiktok}
@@ -202,7 +202,7 @@ export default function CreatorsWeWorkWith() {
                           alt="YouTube"
                           width={100}
                           height={100}
-                          className="h-6 w-6 object-cover"
+                          className="h-5 w-5 object-cover"
                         />
                         <span className="text-gray-300">
                           {creator.followers.youtube}
@@ -216,7 +216,7 @@ export default function CreatorsWeWorkWith() {
                           alt="Linkedin"
                           width={100}
                           height={100}
-                          className="h-6 w-6 object-cover "
+                          className="h-5 w-5 object-cover "
                         />
                         <span className="text-gray-300">
                           {creator.followers.linkedin}

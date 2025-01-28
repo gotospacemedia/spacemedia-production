@@ -15,9 +15,9 @@ import {
   Mic,
   GraduationCap,
   Sparkles,
-  UtensilsCrossed,
   Building,
   Users,
+  Calendar,
 } from "lucide-react";
 
 const categories = [
@@ -40,7 +40,7 @@ const categories = [
     ],
   },
   {
-    title: "Photo",
+    title: "Photography",
     items: [
       { name: "Fashion", icon: Shirt },
       { name: "Product", icon: ShoppingBag },
@@ -51,7 +51,7 @@ const categories = [
   {
     title: "Corporate",
     items: [
-      { name: "Events", icon: UtensilsCrossed },
+      { name: "Events", icon: Calendar },
       { name: "Documentaries", icon: Film },
       { name: "Real Estate", icon: Building },
       { name: "Testimonial", icon: Users },

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, PhoneCall, Send, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
 import Logo from "../logo";
 import { MotionDiv } from "@/framer-motion/elements";
@@ -46,6 +47,7 @@ const navMenu = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   // Track scrollbar
   const { lastScrollY, scrolling } = useScrollHandler();
@@ -63,6 +65,17 @@ export default function Navbar() {
       document.body.classList.remove("overflow-hidden");
     };
   }, [isOpen]);
+
+  // Function to check if the current route is active
+  const isActiveRoute = (link: string) => {
+    if (link.startsWith("/#")) {
+      return (
+        pathname === "/" &&
+        link.slice(2).toLowerCase() === pathname.split("#")[1]?.toLowerCase()
+      );
+    }
+    return pathname === link;
+  };
 
   return (
     <>
@@ -105,7 +118,11 @@ export default function Navbar() {
                         <NavigationMenuLink asChild>
                           <Link
                             href={menu.link}
-                            className="font-medium text-center transition-colors hover:text-brand_primary"
+                            className={cn(
+                              "font-medium text-center transition-colors hover:text-brand_primary",
+                              isActiveRoute(menu.link) &&
+                                "text-brand_primary font-bold"
+                            )}
                           >
                             {menu.label}
                           </Link>
@@ -148,7 +165,11 @@ export default function Navbar() {
                   <li key={menu.label}>
                     <Link
                       href={menu.link}
-                      className="block rounded-lg px-4 py-2.5 text-center transition-colors hover:text-brand_primary"
+                      className={cn(
+                        "block rounded-lg px-4 py-2.5 text-center transition-colors hover:text-brand_primary",
+                        isActiveRoute(menu.link) &&
+                          "text-brand_primary font-bold"
+                      )}
                       onClick={() => setIsOpen(false)}
                     >
                       {menu.label}
