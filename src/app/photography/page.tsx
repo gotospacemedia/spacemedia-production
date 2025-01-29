@@ -1,5 +1,4 @@
 import { fetchImages, type CloudinaryImage } from "@/lib/cloudinary";
-import CldImageWrapper from "./CldImageWrapper";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { MotionDiv } from "@/framer-motion/elements";
@@ -8,6 +7,7 @@ import {
   containerVariants,
 } from "@/framer-motion/variants";
 import Fancybox from "@/components/global/fancybox";
+import MasonryGallery from "@/components/MasonryGallery";
 
 const folders = ["products", "fashion"];
 
@@ -38,7 +38,7 @@ export default async function Portfolio() {
       <section className="section_wrapper text-white">
         <MotionDiv variants={bottomSideVariants}>
           <h3 className="text-2xl md:text-3xl font-semibold text-center mb-8 text-white">
-            Our Portfolio
+            Our Photography
           </h3>
 
           <Tabs
@@ -86,13 +86,7 @@ function VideoContent({ images }: { images: CloudinaryImage[] }) {
         },
       }}
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
-        {images.map((image) => (
-          <div key={image.asset_id} className="border rounded shadow">
-            <CldImageWrapper publicId={image.public_id} />
-          </div>
-        ))}
-      </div>
+      <MasonryGallery images={images} />
     </Fancybox>
   );
 }
