@@ -1,15 +1,27 @@
-"use client";
-
 import { Play } from "lucide-react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import { Story } from "@/lib/vimeo";
+import { getVimeoVideo, VimeoResponse } from "@/lib/vimeo";
 import { MotionSection } from "@/framer-motion/elements";
 import { rightSideVariants } from "@/framer-motion/variants";
 import Fancybox from "../global/fancybox";
+import { connection } from "next/server";
 
-export default function ShortVideoSlider({ stories }: { stories: Story[] }) {
-  const filterStoriesData = stories?.map((short) => {
+export default async function ShortVideoSlider({
+  path,
+  per_page = 30,
+}: {
+  path: string;
+  per_page?: number;
+}) {
+  await connection();
+
+  const response = (await getVimeoVideo({
+    path,
+    per_page,
+  })) as VimeoResponse;
+
+  const filterStoriesData = response?.data?.map((short) => {
     return {
       id: short?.video?.pictures?.base_link,
       name: short?.video?.name,
@@ -17,6 +29,8 @@ export default function ShortVideoSlider({ stories }: { stories: Story[] }) {
       video: short?.video?.link,
     };
   });
+
+  if (!filterStoriesData.length) return null;
 
   return (
     <MotionSection

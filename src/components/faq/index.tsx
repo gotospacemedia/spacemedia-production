@@ -7,9 +7,9 @@ import {
 } from "@/components/ui/accordion";
 import { MotionDiv, MotionSection } from "@/framer-motion/elements";
 import {
+  bottomSideVariants,
   containerVariants,
   fadeInVariants,
-  rightSideVariants,
 } from "@/framer-motion/variants";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -52,7 +52,7 @@ export default function FAQ() {
 
   return (
     <MotionSection
-      variants={rightSideVariants}
+      variants={bottomSideVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}

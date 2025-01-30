@@ -1,7 +1,7 @@
 "use client";
 
-import { MotionDiv, MotionSection } from "@/framer-motion/elements";
 import "./style.css";
+import { MotionDiv, MotionSection } from "@/framer-motion/elements";
 import { containerVariants, rightSideVariants } from "@/framer-motion/variants";
 
 const InstagramReels = () => {

@@ -9,19 +9,17 @@ import {
 import Fancybox from "@/components/global/fancybox";
 import MasonryGallery from "@/components/MasonryGallery";
 
-const folders = ["products", "fashion"];
-
 interface FolderImages {
   [key: string]: CloudinaryImage[];
 }
 
+const FOLDERS = ["products", "fashion"] as const;
+
 async function getFolderImages(): Promise<FolderImages> {
-  const imagePromises = folders.map((folder) => fetchImages(folder));
-  const results = await Promise.all(imagePromises);
-  return folders.reduce((acc, folder, index) => {
-    acc[folder] = results[index];
-    return acc;
-  }, {} as FolderImages);
+  const results = await Promise.all(FOLDERS.map(fetchImages));
+  return Object.fromEntries(
+    FOLDERS.map((folder, index) => [folder, results[index]])
+  );
 }
 
 export default async function Portfolio() {
@@ -33,7 +31,7 @@ export default async function Portfolio() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="!overflow-hidden"
+      className="overflow-hidden"
     >
       <section className="section_wrapper text-white">
         <MotionDiv variants={bottomSideVariants}>
@@ -42,12 +40,12 @@ export default async function Portfolio() {
           </h3>
 
           <Tabs
-            defaultValue={folders[0]}
+            defaultValue={FOLDERS[0]}
             className="container mx-auto text-white"
           >
             <ScrollArea className="w-full max-w-max mx-auto">
               <TabsList className="inline-flex h-16 items-center justify-start bg-transparent p-0">
-                {folders.map((folder) => (
+                {FOLDERS.map((folder) => (
                   <TabsTrigger
                     key={folder}
                     value={folder}
@@ -60,9 +58,9 @@ export default async function Portfolio() {
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
 
-            {folders.map((folder) => (
+            {FOLDERS.map((folder) => (
               <TabsContent key={folder} value={folder}>
-                <VideoContent images={folderImages[folder]} />
+                <GalleryContent images={folderImages[folder]} />
               </TabsContent>
             ))}
           </Tabs>
@@ -72,9 +70,9 @@ export default async function Portfolio() {
   );
 }
 
-function VideoContent({ images }: { images: CloudinaryImage[] }) {
+function GalleryContent({ images }: { images: CloudinaryImage[] }) {
   if (images.length === 0) {
-    return <div>No images found</div>;
+    return <div className="text-center py-8">No images found</div>;
   }
 
   return (

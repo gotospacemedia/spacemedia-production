@@ -8,11 +8,13 @@ cloudinary.config({
 });
 
 export interface CloudinaryImage {
-  public_id: string;
-  secure_url: string;
   asset_id: string;
+  public_id: string;
+  filename: string;
   width: number;
   height: number;
+  aspect_ratio: number;
+  secure_url: string;
 }
 
 export async function fetchImages(
