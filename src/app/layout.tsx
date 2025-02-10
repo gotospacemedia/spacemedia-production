@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "@/components/navbar";
 import Footer from "../components/footer";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import "./globals.css";
 
@@ -64,6 +65,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body className={`${visby.className} antialiased`}>
+        <GoogleTagManager gtmId={String(process.env.NEXT_PUBLIC_GTM_ID)} />
+
         <Navbar />
         {children}
         <Footer />
