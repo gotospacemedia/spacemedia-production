@@ -7,7 +7,7 @@ const SendGTMEvent = ({ params }: { params: object }) => {
   //
   useEffect(() => {
     sendGTMEvent(params);
-  }, []);
+  }, [params]);
   return null;
 };
 

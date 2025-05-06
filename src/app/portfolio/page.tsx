@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { Play } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { MotionDiv } from "@/framer-motion/elements";
@@ -9,11 +7,10 @@ import {
   fadeInVariants,
 } from "@/framer-motion/variants";
 import { vimeoFolderPath, type VimeoFolderKey } from "@/constant";
-import { getVimeoVideo, type VimeoResponse } from "@/lib/vimeo";
-import Fancybox from "@/components/global/fancybox";
 import { useMemo, memo } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import VideoContent from "@/components/vimeo/VideoContent";
 
 const folderKeys = Object.keys(vimeoFolderPath) as VimeoFolderKey[];
 
@@ -86,77 +83,12 @@ export default function Portfolio() {
   );
 }
 
-interface VideoItem {
-  id: string;
-  name: string;
-  thumbnail: string;
-  video: string;
-}
-
-const VideoItem = memo(({ story }: { story: VideoItem }) => (
-  <div className="w-full h-full">
-    <a href={story.video} data-fancybox="shortformat" className="w-full h-full">
-      <button className="w-full h-full relative overflow-hidden rounded-2xl border-0">
-        <Image
-          src={story.thumbnail || "/placeholder.svg"}
-          alt={story.name}
-          width={500}
-          height={700}
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20">
-          <div
-            className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition-transform hover:scale-110"
-            aria-hidden="true"
-          >
-            <Play className="h-6 w-6" />
-          </div>
-        </div>
-      </button>
-    </a>
-  </div>
-));
-
-VideoItem.displayName = "VideoItem";
-
 const TabsContentWrapper = memo(({ folder }: { folder: VimeoFolderKey }) => {
   return (
     <TabsContent key={folder} value={folder}>
-      <VideoContent folder={folder} />
+      <VideoContent folderPath={vimeoFolderPath[folder] as string} />
     </TabsContent>
   );
 });
 
 TabsContentWrapper.displayName = "TabsContentWrapper";
-
-const VideoContent = async ({ folder }: { folder: VimeoFolderKey }) => {
-  const vimeoResponse = (await getVimeoVideo({
-    path: vimeoFolderPath[folder],
-    per_page: 100,
-  })) as VimeoResponse;
-
-  const filterVideoData =
-    vimeoResponse.data?.map((long) => ({
-      id: long?.video?.pictures?.base_link ?? "",
-      name: long?.video?.name ?? "",
-      thumbnail: long?.video?.pictures?.base_link ?? "",
-      video: long?.video?.link ?? "",
-    })) ?? [];
-
-  return (
-    <Fancybox
-      options={{
-        Carousel: {
-          infinite: false,
-          Thumbs: false,
-        },
-      }}
-    >
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
-        {filterVideoData.map((story) => (
-          <VideoItem key={story.id} story={story} />
-        ))}
-      </div>
-    </Fancybox>
-  );
-};

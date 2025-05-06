@@ -5,7 +5,7 @@ import { getVimeoVideo, VimeoResponse } from "@/lib/vimeo";
 import { MotionSection } from "@/framer-motion/elements";
 import { rightSideVariants } from "@/framer-motion/variants";
 import Fancybox from "../global/fancybox";
-import { connection } from "next/server";
+// import { connection } from "next/server";
 
 export default async function ShortVideoSlider({
   path,
@@ -14,7 +14,7 @@ export default async function ShortVideoSlider({
   path: string;
   per_page?: number;
 }) {
-  await connection();
+  // await connection();
 
   const response = (await getVimeoVideo({
     path,
